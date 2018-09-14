@@ -1,3 +1,51 @@
+/*
+Spiral Matrix
+
+- m: rows, n: elements
+- starts at [0][0], goes all the way left, then down, then to [arr l - 1][iarr - 1], then stops
+  at [1, iarr - 1]
+- how does it look for even number of rows? are rows always odd? is it always 3?
+- are the elements always numbers?
+- create a current position marker that locates where you are
+  - this changes upon current direction (right, down, left, or up)
+  - changes if either next element is `undefined` or `null`
+
+  Input: Nested array
+  Output: single level array
+
+  [
+    [ 1, 2, 3 ]
+    [ 4, 5, 6 ]
+    [ 7, 8, 9 ]
+    [ a, b, c ]
+    [ e, f, g ]
+  ]
+
+  [1, 2, 3, 6, 9, c, g, f, e, a, 7, 4, 5, 8, b]
+
+  [
+    [ 1, 2, 3, h ]
+    [ 4, 5, 6, i ]
+    [ 7, 8, 9, j ]
+    [ a, b, c, k ]
+    [ e, f, g, l ]
+  ]
+
+  [1, 2, 3, h, i, j, k, l, g, f, e, a, 7, 4, 5, 6, 9, c, b, 8]
+
+Algorithm:
+  a) have a tracker that is an array [0, 0] for vertical, horizontal
+  b) have a direction tracker that is a hash table that returns the next direction
+     and a variable that holds the current direction
+  c) if return_arr length === m * n, then return
+  d) add current character and set cell to `undefined`
+  e) check next character
+     - clone the array, then increment to check next cell
+     - if it's undefined, return false
+       - change direction, then go back to c
+     - if it's a number, return true
+       - go back to c
+*/
 function updateTracker(tracker, direction) {
   switch(direction) {
     case 'r':

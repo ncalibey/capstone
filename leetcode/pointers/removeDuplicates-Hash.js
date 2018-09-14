@@ -11,7 +11,7 @@
     - increment through
       - if arr[i] is in the hash table, then splice it out, otherwise add it with a value of `true`
       - only increment `i` if we didn't splice something out!
-    - Runtime: O(N)
+    - Runtime: O(N^2)
     - Size: O(N^2)
 */
 

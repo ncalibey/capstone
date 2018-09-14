@@ -1,3 +1,31 @@
+/*
+Roman to Integer
+
+- seven symbols: I, V, X, L, C, D, M
+- I before V is 4
+- I before X is 10
+- X before L is 40
+- X before C is 90
+- C before D is 400
+- D before M is 900
+
+  Input: String
+  Output: Number
+
+- read chars and have a running total
+- use helpers with the 'odd' characters
+- have a hash that keeps track of numerals and their value
+
+Algorithm:
+  a) read string left to right
+    a.i) keep a running total starting at 0 and a `pos` for position at 0
+    a.ii) if `char` is /[VLDM]/ then add to total and increment by 1
+      - else, check the next character
+        - if it is a 'matching' (i.e., leads to 4, 9, etc), subtract 2nd by 1st
+          and up `pos` by 2
+        - else, increment and up `pos` by 1
+  b) return total
+*/
 function getNumeralValue(numeral) {
   const VALUES = {
     'I': 1,
