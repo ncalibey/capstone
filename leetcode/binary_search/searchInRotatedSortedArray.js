@@ -5,8 +5,9 @@
     - if it's ordered, check if target is between them
       - if it is, search it
       - else search right
-  -
 
+  Runtime: O(log N)
+  Space: O(1)
 */
 
 var search = function(nums, target) {
@@ -19,10 +20,18 @@ var search = function(nums, target) {
 
     if (midVal === target) {
       return mid;
-    } else if (midval > target && target > nums[left]) {
-      right = mid;
+    } else if (midVal > nums[left]) {
+      if (target >= nums[left] && target < midVal) {
+        right = mid
+      } else {
+        left = mid;
+      }
     } else {
-      left = mid;
+      if (target <= nums[right] && target > midVal) {
+        left = mid;
+      } else {
+        right = mid;
+      }
     }
   }
 
@@ -34,3 +43,8 @@ var search = function(nums, target) {
 
   return -1;
 };
+
+console.log(search([4,5,6,7,0,1,2], 0));
+console.log(search([4,5,6,7,0,1,2], 3));
+console.log(search([4,5,6,7,0,1,2], 7));
+console.log(search([], 0));
