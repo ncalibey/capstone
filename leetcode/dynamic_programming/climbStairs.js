@@ -1,17 +1,17 @@
 // Top down
-// function climbStairsHelper(n, cache={}) {
-//   if (n == 1 || n == 0) return 1;
-//
-//   if (cache[n]) {
-//     return cache[n];
-//   } else {
-//     return cache[n] = (cache[n-1] || climbStairs(n-1, cache)) + (cache[n-2] || climbStairs(n-2, cache));
-//   }
-// }
-//
-// var climbStairs = function(n, cache={}) {
-//   return climbStairsHelper(n, {});
-// }
+function climbStairsHelper(n, cache={}) {
+  if (n == 1 || n == 0) return 1;
+
+  if (cache[n]) {
+    return cache[n];
+  } else {
+    return cache[n] = (cache[n-1] || climbStairs(n-1, cache)) + (cache[n-2] || climbStairs(n-2, cache));
+  }
+}
+
+var climbStairs = function(n) {
+  return climbStairsHelper(n, {});
+}
 
 // Bottom up
 function climbStairs(n) {
