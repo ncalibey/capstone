@@ -1,6 +1,6 @@
 def min_path_sum_helper(grid, row, col, cache)
   return grid[row][col] if row === 0 && col === 0
-  return nil if col < 0 || row < 0
+  return Float::INFINITY if col < 0 || row < 0
 
   val = grid[row][col]
 
@@ -16,13 +16,7 @@ def min_path_sum_helper(grid, row, col, cache)
          min_path_sum_helper(grid, row - 1, col, cache)
        end
 
-  return val + up if left.nil?
-  return val + left if up.nil?
-
-  left += val
-  up += val
-
-  cache[[row, col]] = [left, up].min
+  cache[[row, col]] = val + ([left, up].min)
 end
 
 def min_path_sum(grid)
