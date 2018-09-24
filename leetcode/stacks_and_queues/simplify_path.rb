@@ -1,18 +1,14 @@
 class Stack
-
   def initialize
     @construct = []
-    @top = 0
   end
 
   def push(item)
     @construct.push(item)
-    @top += 1
   end
 
   def pop
     @construct.pop
-    @top -= 1
   end
 
   def read
