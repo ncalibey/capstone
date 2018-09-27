@@ -1,11 +1,11 @@
 var sumNumbers = function(root) {
-  function sumNumbersHelper(root, stack) {
+  function sumNumbersHelper(root) {
     if (root === null) return true;
 
     stack.push(root.val)
 
-    const left = sumNumbersHelper(root.left, stack);
-    const right = sumNumbersHelper(root.right, stack);
+    const left = sumNumbersHelper(root.left);
+    const right = sumNumbersHelper(root.right);
 
     if (left && right) sum += Number(stack.join(''));
 
@@ -16,7 +16,7 @@ var sumNumbers = function(root) {
 
   let sum = 0;
   const stack = [];
-  sumNumbersHelper(root, stack, sum)
+  sumNumbersHelper(root)
 
   return sum;
 };
