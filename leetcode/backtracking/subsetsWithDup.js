@@ -12,11 +12,9 @@ function subsetsWithDupHelper(nums, i, temp, results, cache) {
     for (let j = i + 1; j < nums.length; j += 1) {
       subsetsWithDupHelper(nums, j, temp, results, cache);
     }
-
-    temp.pop();
-  } else {
-    temp.pop();
   }
+
+  temp.pop();
 }
 
 var subsetsWithDup = function(nums) {
@@ -32,6 +30,6 @@ var subsetsWithDup = function(nums) {
   return results;
 };
 
-// console.log(subsetsWithDup([1,2,2]));
-// console.log(subsetsWithDup([1,1,2,2]));
+console.log(subsetsWithDup([1,2,2]));
+console.log(subsetsWithDup([1,1,2,2]));
 console.log(subsetsWithDup([4,4,4,1,4]));
