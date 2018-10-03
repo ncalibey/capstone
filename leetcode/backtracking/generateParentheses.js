@@ -19,9 +19,7 @@ function generateParenthesisHelper(n, temp, results) {
     temp.push(options[i]);
 
     if (temp.length === n * 2) {
-      if (isValidParens(temp)) {
-        results.push(temp.slice().join(''));
-      }
+      if (isValidParens(temp)) results.push(temp.slice().join(''));
     } else {
       generateParenthesisHelper(n, temp, results);
     }
